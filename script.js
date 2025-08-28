@@ -7,9 +7,7 @@ let slides;
 let dots;
 let prevBtn;
 let nextBtn;
-let logoInput;
 let mascotaInput;
-let logoPlaceholder;
 let mascotaPlaceholder;
 
 // Inicialización
@@ -19,9 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dots = document.querySelectorAll('.dot');
     prevBtn = document.getElementById('prevBtn');
     nextBtn = document.getElementById('nextBtn');
-    logoInput = document.getElementById('logoInput');
     mascotaInput = document.getElementById('mascotaInput');
-    logoPlaceholder = document.getElementById('logoPlaceholder');
     mascotaPlaceholder = document.getElementById('mascotaPlaceholder');
     
     updateSlide();
@@ -168,13 +164,6 @@ function announceSlideChange() {
 
 // Configurar subida de imágenes
 function setupImageUploads() {
-    // Logo upload
-    if (logoInput && logoPlaceholder) {
-        logoInput.addEventListener('change', function(e) {
-            handleImageUpload(e, logoPlaceholder, 'Logo del colegio cargado');
-        });
-    }
-    
     // Mascota upload
     if (mascotaInput && mascotaPlaceholder) {
         mascotaInput.addEventListener('change', function(e) {
