@@ -201,8 +201,8 @@ body {
     padding: 60px;
     box-shadow: var(--shadow);
     position: relative;
-    overflow-y: auto;
-    max-height: calc(100vh - 160px);
+    overflow-y: scroll;
+    height: calc(100vh - 160px);
     scrollbar-width: thin;
     scrollbar-color: var(--primary) var(--gray-light);
 }
@@ -1001,7 +1001,7 @@ h4 {
     .slide-content {
         padding: 25px 15px;
         margin: 10px;
-        max-height: calc(100vh - 140px);
+        height: calc(100vh - 140px);
     }
     
     .portada {
@@ -1103,7 +1103,7 @@ h4 {
     .slide-content {
         padding: 20px 12px;
         margin: 5px;
-        max-height: calc(100vh - 120px);
+        height: calc(100vh - 120px);
     }
     
     .portada-text h1 {
