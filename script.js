@@ -3,17 +3,27 @@ let currentSlide = 0;
 const totalSlides = 9;
 
 // Elementos del DOM
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
-const logoInput = document.getElementById('logoInput');
-const mascotaInput = document.getElementById('mascotaInput');
-const logoPlaceholder = document.getElementById('logoPlaceholder');
-const mascotaPlaceholder = document.getElementById('mascotaPlaceholder');
+let slides;
+let dots;
+let prevBtn;
+let nextBtn;
+let logoInput;
+let mascotaInput;
+let logoPlaceholder;
+let mascotaPlaceholder;
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar elementos del DOM
+    slides = document.querySelectorAll('.slide');
+    dots = document.querySelectorAll('.dot');
+    prevBtn = document.getElementById('prevBtn');
+    nextBtn = document.getElementById('nextBtn');
+    logoInput = document.getElementById('logoInput');
+    mascotaInput = document.getElementById('mascotaInput');
+    logoPlaceholder = document.getElementById('logoPlaceholder');
+    mascotaPlaceholder = document.getElementById('mascotaPlaceholder');
+    
     updateSlide();
     setupEventListeners();
     setupImageUploads();
@@ -159,14 +169,18 @@ function announceSlideChange() {
 // Configurar subida de imágenes
 function setupImageUploads() {
     // Logo upload
-    logoInput.addEventListener('change', function(e) {
-        handleImageUpload(e, logoPlaceholder, 'Logo del colegio cargado');
-    });
+    if (logoInput && logoPlaceholder) {
+        logoInput.addEventListener('change', function(e) {
+            handleImageUpload(e, logoPlaceholder, 'Logo del colegio cargado');
+        });
+    }
     
     // Mascota upload
-    mascotaInput.addEventListener('change', function(e) {
-        handleImageUpload(e, mascotaPlaceholder, 'Mascota cargada');
-    });
+    if (mascotaInput && mascotaPlaceholder) {
+        mascotaInput.addEventListener('change', function(e) {
+            handleImageUpload(e, mascotaPlaceholder, 'Mascota cargada');
+        });
+    }
 }
 
 // Manejar subida de imagen
