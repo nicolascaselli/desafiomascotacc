@@ -45,9 +45,26 @@
         <!-- Slide 1: Portada -->
         <section class="slide active" id="slide-0" role="tabpanel" aria-labelledby="slide-0-title">
             <div class="slide-content portada">
-                <div class="mascota-placeholder" id="mascotaPlaceholder">
-                    <span>Sube aquí la mascota</span>
-                    <input type="file" id="mascotaInput" accept="image/png" aria-label="Subir mascota PNG sin fondo">
+                <div class="mascota-container">
+                    <div class="mascota-display">
+                        <img src="https://casellispacebucket.nyc3.cdn.digitaloceanspaces.com/Talleres/PuertasAbiertasChillan/mascotasinfondo.png" 
+                             alt="Mascota CC Chillán" 
+                             class="mascota-image">
+                    </div>
+                    <div class="mascota-url-section">
+                        <div class="url-label">URL de la mascota para usar en Bolt:</div>
+                        <div class="url-copy-container">
+                            <input type="text" 
+                                   id="mascotaUrl" 
+                                   class="url-input" 
+                                   readonly 
+                                   value="https://casellispacebucket.nyc3.cdn.digitaloceanspaces.com/Talleres/PuertasAbiertasChillan/mascotasinfondo.png"
+                                   aria-label="URL de la mascota">
+                            <button class="copy-mascot-btn" onclick="copyMascotUrl()" aria-label="Copiar URL de la mascota">
+                                📋 Copiar
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="portada-text">
                     <h1 id="slide-0-title">CreaTuApp con IA:<br>Desafío Mascota CC Chillán</h1>
