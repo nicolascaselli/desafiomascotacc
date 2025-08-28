@@ -181,7 +181,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 80px 40px 120px 40px;
 }
 
 .slide.active {
@@ -202,7 +202,27 @@ body {
     box-shadow: var(--shadow);
     position: relative;
     overflow-y: auto;
-    max-height: 90vh;
+    max-height: calc(100vh - 160px);
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--gray-light);
+}
+
+.slide-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.slide-content::-webkit-scrollbar-track {
+    background: var(--gray-light);
+    border-radius: 4px;
+}
+
+.slide-content::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+.slide-content::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
 }
 
 /* Portada */
@@ -979,8 +999,9 @@ h4 {
 /* Responsive */
 @media (max-width: 768px) {
     .slide-content {
-        padding: 30px 20px;
-        margin: 20px;
+        padding: 25px 15px;
+        margin: 10px;
+        max-height: calc(100vh - 140px);
     }
     
     .portada {
@@ -1076,12 +1097,13 @@ h4 {
 
 @media (max-width: 480px) {
     .slide {
-        padding: 20px 10px;
+        padding: 60px 10px 100px 10px;
     }
     
     .slide-content {
-        padding: 20px 15px;
-        margin: 10px;
+        padding: 20px 12px;
+        margin: 5px;
+        max-height: calc(100vh - 120px);
     }
     
     .portada-text h1 {
