@@ -70,28 +70,41 @@ function handleKeyboard(e) {
 
 // Navegación de slides
 function nextSlide() {
+    console.log('Next slide called, current:', currentSlide);
     if (currentSlide < totalSlides - 1) {
         currentSlide++;
         updateSlide();
+        console.log('Moved to slide:', currentSlide);
     }
 }
 
 function prevSlide() {
+    console.log('Previous slide called, current:', currentSlide);
     if (currentSlide > 0) {
         currentSlide--;
         updateSlide();
+        console.log('Moved to slide:', currentSlide);
     }
 }
 
 function goToSlide(index) {
+    console.log('Go to slide called:', index);
     if (index >= 0 && index < totalSlides) {
         currentSlide = index;
         updateSlide();
+        console.log('Moved to slide:', currentSlide);
     }
 }
 
 // Actualizar slide activo
 function updateSlide() {
+    console.log('Updating slide to:', currentSlide);
+    
+    if (!slides || slides.length === 0) {
+        console.error('No slides available for update');
+        return;
+    }
+    
     // Actualizar slides
     slides.forEach((slide, index) => {
         slide.classList.remove('active', 'prev');
@@ -103,17 +116,21 @@ function updateSlide() {
     });
     
     // Actualizar dots
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-        dot.setAttribute('aria-selected', index === currentSlide);
-    });
+    if (dots && dots.length > 0) {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+            dot.setAttribute('aria-selected', index === currentSlide);
+        });
+    }
     
     // Actualizar botones de navegación
     if (prevBtn) {
         prevBtn.disabled = currentSlide === 0;
+        console.log('Previous button disabled:', currentSlide === 0);
     }
     if (nextBtn) {
         nextBtn.disabled = currentSlide === totalSlides - 1;
+        console.log('Next button disabled:', currentSlide === totalSlides - 1);
     }
     
     // Actualizar ARIA
@@ -121,6 +138,8 @@ function updateSlide() {
     
     // Anunciar cambio de slide para lectores de pantalla
     announceSlideChange();
+    
+    console.log('Slide update completed');
 }
 
 // Actualizar atributos ARIA
@@ -316,6 +335,39 @@ window.goToSlide = goToSlide;
 window.copyPrompt = copyPrompt;
 window.copyUrl = copyUrl;
 window.copyMascotUrl = copyMascotUrl;
+
+// Función de inicialización alternativa por si falla DOMContentLoaded
+function initPresentation() {
+    console.log('Alternative initialization called');
+    
+    // Reintentar obtener elementos
+    slides = document.querySelectorAll('.slide');
+    dots = document.querySelectorAll('.dot');
+    prevBtn = document.getElementById('prevBtn');
+    nextBtn = document.getElementById('nextBtn');
+    
+    if (slides.length > 0 && prevBtn && nextBtn) {
+        console.log('Elements found on retry, setting up...');
+        updateSlide();
+        setupEventListeners();
+        setupChecklist();
+    } else {
+        console.log('Still missing elements, will retry in 500ms');
+        setTimeout(initPresentation, 500);
+    }
+}
+
+// Backup initialization
+window.addEventListener('load', function() {
+    console.log('Window load event fired');
+    if (!slides || slides.length === 0 || !prevBtn || !nextBtn) {
+        console.log('Missing elements on window load, trying alternative init');
+        initPresentation();
+    }
+});
+
+// Exponer función de inicialización globalmente
+window.initPresentation = initPresentation;
 
 // Agregar estilos para animaciones
 const style = document.createElement('style');

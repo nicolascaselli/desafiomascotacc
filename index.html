@@ -583,5 +583,23 @@ Usa LOGO y MASCOTA del colegio.</textarea>
     </main>
 
     <script src="script.js"></script>
+    <script>
+        // Verificación adicional para asegurar que todo funcione
+        setTimeout(function() {
+            if (typeof window.initPresentation === 'function') {
+                console.log('Running backup initialization check...');
+                const slides = document.querySelectorAll('.slide');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                
+                if (slides.length === 0 || !prevBtn || !nextBtn) {
+                    console.log('Elements missing, running backup init');
+                    window.initPresentation();
+                } else {
+                    console.log('All elements present, navigation should work');
+                }
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
