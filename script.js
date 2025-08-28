@@ -271,20 +271,31 @@ function setupChecklist() {
 function copyPrompt() {
     const promptText = document.getElementById('promptText');
     if (promptText) {
-        promptText.select();
-        document.execCommand('copy');
-        showNotification('Prompt copiado al portapapeles 📋');
-        
-        // Efecto visual en el botón
-        const copyBtn = document.querySelector('.copy-btn');
-        const originalText = copyBtn.textContent;
-        copyBtn.textContent = '✅ Copiado';
-        copyBtn.style.background = '#28a745';
-        
-        setTimeout(() => {
-            copyBtn.textContent = originalText;
-            copyBtn.style.background = 'var(--primary)';
-        }, 2000);
+        // Usar la API moderna del portapapeles
+        navigator.clipboard.writeText(promptText.value).then(() => {
+            showNotification('Prompt copiado al portapapeles 📋');
+            
+            // Efecto visual en el botón
+            const copyBtn = document.querySelector('.copy-btn');
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = '✅ Copiado';
+            copyBtn.style.background = '#28a745';
+            
+            setTimeout(() => {
+                copyBtn.textContent = originalText;
+                copyBtn.style.background = 'var(--primary)';
+            }, 2000);
+        }).catch(err => {
+            console.error('Error al copiar:', err);
+            // Fallback para navegadores antiguos
+            promptText.select();
+            try {
+                document.execCommand('copy');
+                showNotification('Prompt copiado al portapapeles 📋');
+            } catch (e) {
+                showNotification('Error al copiar. Selecciona y copia manualmente.', 'error');
+            }
+        });
     }
 }
 
@@ -316,20 +327,31 @@ function copyUrl() {
 function copyMascotUrl() {
     const urlInput = document.getElementById('mascotaUrl');
     if (urlInput) {
-        urlInput.select();
-        document.execCommand('copy');
-        showNotification('URL de la mascota copiada 🎭');
-        
-        // Efecto visual en el botón
-        const copyBtn = document.querySelector('.copy-mascot-btn');
-        const originalText = copyBtn.textContent;
-        copyBtn.textContent = '✅ Copiado';
-        copyBtn.style.background = '#28a745';
-        
-        setTimeout(() => {
-            copyBtn.textContent = originalText;
-            copyBtn.style.background = 'var(--primary)';
-        }, 2000);
+        // Usar la API moderna del portapapeles
+        navigator.clipboard.writeText(urlInput.value).then(() => {
+            showNotification('URL de la mascota copiada 🎭');
+            
+            // Efecto visual en el botón
+            const copyBtn = document.querySelector('.copy-mascot-btn');
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = '✅ Copiado';
+            copyBtn.style.background = '#28a745';
+            
+            setTimeout(() => {
+                copyBtn.textContent = originalText;
+                copyBtn.style.background = 'var(--primary)';
+            }, 2000);
+        }).catch(err => {
+            console.error('Error al copiar:', err);
+            // Fallback para navegadores antiguos
+            urlInput.select();
+            try {
+                document.execCommand('copy');
+                showNotification('URL de la mascota copiada 🎭');
+            } catch (e) {
+                showNotification('Error al copiar. Selecciona y copia manualmente.', 'error');
+            }
+        });
     }
 }
 
