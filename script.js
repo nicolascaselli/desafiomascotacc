@@ -1,6 +1,6 @@
 // Estado global de la presentación
 let currentSlide = 0;
-const totalSlides = 9;
+const totalSlides = 10;
 
 // Elementos del DOM
 let slides;

@@ -1022,6 +1022,18 @@ h4 {
         grid-template-columns: 1fr;
     }
     
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .achievement-stats {
+        gap: 20px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
     .url-input-container {
         flex-direction: column;
     }
