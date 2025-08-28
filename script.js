@@ -17,20 +17,21 @@ document.addEventListener('DOMContentLoaded', function() {
     dots = document.querySelectorAll('.dot');
     prevBtn = document.getElementById('prevBtn');
     nextBtn = document.getElementById('nextBtn');
-    mascotaInput = document.getElementById('mascotaInput');
-    mascotaPlaceholder = document.getElementById('mascotaPlaceholder');
     
     updateSlide();
     setupEventListeners();
-    setupImageUploads();
     setupChecklist();
 });
 
 // Configurar event listeners
 function setupEventListeners() {
     // Navegación con botones
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevSlide);
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextSlide);
+    }
     
     // Navegación con teclado
     document.addEventListener('keydown', handleKeyboard);
@@ -108,8 +109,12 @@ function updateSlide() {
     });
     
     // Actualizar botones de navegación
-    prevBtn.disabled = currentSlide === 0;
-    nextBtn.disabled = currentSlide === totalSlides - 1;
+    if (prevBtn) {
+        prevBtn.disabled = currentSlide === 0;
+    }
+    if (nextBtn) {
+        nextBtn.disabled = currentSlide === totalSlides - 1;
+    }
     
     // Actualizar ARIA
     updateARIA();
@@ -155,57 +160,6 @@ function announceSlideChange() {
     setTimeout(() => {
         document.body.removeChild(announcer);
     }, 1000);
-}
-
-// Configurar subida de imágenes
-function setupImageUploads() {
-    // Mascota upload
-    if (mascotaInput && mascotaPlaceholder) {
-        mascotaInput.addEventListener('change', function(e) {
-            handleImageUpload(e, mascotaPlaceholder, 'Mascota cargada');
-        });
-    }
-}
-
-// Manejar subida de imagen
-function handleImageUpload(event, placeholder, altText) {
-    const file = event.target.files[0];
-    if (file && file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            // Crear elemento de imagen
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.alt = altText;
-            img.style.width = '100%';
-            img.style.height = '100%';
-            img.style.objectFit = 'contain';
-            
-            // Reemplazar contenido del placeholder
-            const span = placeholder.querySelector('span');
-            if (span) {
-                span.style.display = 'none';
-            }
-            
-            // Remover imagen anterior si existe
-            const existingImg = placeholder.querySelector('img');
-            if (existingImg) {
-                existingImg.remove();
-            }
-            
-            placeholder.appendChild(img);
-            
-            // Cambiar estilo del placeholder
-            placeholder.style.border = '3px solid var(--primary)';
-            placeholder.style.background = 'var(--white)';
-            
-            // Anunciar carga exitosa
-            showNotification(`${altText} exitosamente`);
-        };
-        reader.readAsDataURL(file);
-    } else {
-        showNotification('Por favor selecciona un archivo de imagen válido', 'error');
-    }
 }
 
 // Mostrar notificación
