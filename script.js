@@ -39,11 +39,6 @@ function setupEventListeners() {
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => goToSlide(index));
     });
-    
-    // Prevenir scroll en el body
-    document.body.addEventListener('wheel', (e) => {
-        e.preventDefault();
-    }, { passive: false });
 }
 
 // Manejo de teclado
@@ -393,7 +388,7 @@ window.addEventListener('error', function(e) {
 
 // Prevenir zoom con Ctrl+scroll
 document.addEventListener('wheel', function(e) {
-    if (e.ctrlKey) {
+    if (e.ctrlKey || e.metaKey) {
         e.preventDefault();
     }
 }, { passive: false });
