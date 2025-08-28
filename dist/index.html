@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío Mascota CC Chillán - Taller CreaTuApp con IA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="/assets/index-AhdfHe3a.css">
+</head>
+<body>
+    <!-- Header con logo placeholder -->
+    <header class="header">
+        <div class="logo-container" id="logoContainer">
+            <img src="https://casellispacebucket.nyc3.cdn.digitaloceanspaces.com/assets/ICI-02_recortado.png" 
+                 alt="Logo Colegio Concepción Chillán" 
+                 class="college-logo">
+        </div>
+    </header>
+
+    <!-- Navegación y progreso -->
+    <nav class="navigation" role="navigation" aria-label="Navegación de slides">
+        <button class="nav-btn" id="prevBtn" aria-label="Slide anterior">
+            <span>←</span> Anterior
+        </button>
+        
+        <div class="progress-dots" role="tablist" aria-label="Progreso de la presentación">
+            <button class="dot active" role="tab" aria-selected="true" aria-label="Slide 1 de 9" data-slide="0"></button>
+            <button class="dot" role="tab" aria-selected="false" aria-label="Slide 2 de 9" data-slide="1"></button>
+            <button class="dot" role="tab" aria-selected="false" aria-label="Slide 3 de 9" data-slide="2"></button>
+            <button class="dot" role="tab" aria-selected="false" aria-label="Slide 4 de 9" data-slide="3"></button>
+            <button class="dot" role="tab" aria-selected="false" aria-label="Slide 5 de 9" data-slide="4"></button>
+            <button class="dot" role="tab" aria-selected="false" aria-label="Slide 6 de 9" data-slide="5"></button>
+            <button class="dot" role="tab" aria-selected="false" aria-label="Slide 7 de 9" data-slide="6"></button>
+            <button class="dot" role="tab" aria-selected="false" aria-label="Slide 8 de 9" data-slide="7"></button>
+            <button class="dot" role="tab" aria-selected="false" aria-label="Slide 9 de 9" data-slide="8"></button>
+        </div>
+        
+        <button class="nav-btn" id="nextBtn" aria-label="Siguiente slide">
+            Siguiente <span>→</span>
+        </button>
+    </nav>
+
+    <!-- Container principal de slides -->
+    <main class="slides-container" role="main">
+        
+        <!-- Slide 1: Portada -->
+        <section class="slide active" id="slide-0" role="tabpanel" aria-labelledby="slide-0-title">
+            <div class="slide-content portada">
+                <div class="mascota-container">
+                    <div class="mascota-display">
+                        <img src="https://casellispacebucket.nyc3.cdn.digitaloceanspaces.com/Talleres/PuertasAbiertasChillan/mascotasinfondo.png" 
+                             alt="Mascota CC Chillán" 
+                             class="mascota-image">
+                    </div>
+                    <div class="mascota-url-section">
+                        <div class="url-label">URL de la mascota para usar en Bolt:</div>
+                        <div class="url-copy-container">
+                            <input type="text" 
+                                   id="mascotaUrl" 
+                                   class="url-input" 
+                                   readonly 
+                                   value="https://casellispacebucket.nyc3.cdn.digitaloceanspaces.com/Talleres/PuertasAbiertasChillan/mascotasinfondo.png"
+                                   aria-label="URL de la mascota">
+                            <button class="copy-mascot-btn" onclick="copyMascotUrl()" aria-label="Copiar URL de la mascota">
+                                📋 Copiar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="portada-text">
+                    <h1 id="slide-0-title">CreaTuApp con IA:<br>Desafío Mascota CC Chillán</h1>
+                    <p class="subtitle">De la idea al MVP en 60 minutos usando Bolt</p>
+                    <button class="btn-primary" onclick="nextSlide()" aria-label="Comenzar presentación">
+                        Comenzar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 2: ¿Qué es IA generativa? -->
+        <section class="slide" id="slide-1" role="tabpanel" aria-labelledby="slide-1-title">
+            <div class="slide-content">
+                <h2 id="slide-1-title">¿Qué es IA generativa?</h2>
+                <div class="time-indicator">⏱️ 5 minutos</div>
+                
+                <div class="definition-box">
+                    <p><strong>IA que crea contenido nuevo</strong> (texto, imágenes, interfaces, código) a partir de prompts o instrucciones.</p>
+                </div>
+
+                <div class="two-columns">
+                    <div class="column">
+                        <h3>✨ Ventajas</h3>
+                        <ul>
+                            <li>Velocidad de prototipado</li>
+                            <li>Creatividad asistida</li>
+                            <li>Personalización automática</li>
+                            <li>Reducción de barreras técnicas</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h3>🚀 Potencialidades</h3>
+                        <ul>
+                            <li>Educación personalizada</li>
+                            <li>Prototipado de productos</li>
+                            <li>Investigación y análisis</li>
+                            <li>Mejora de accesibilidad</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <strong>⚠️ Uso responsable:</strong> Considerar privacidad, sesgos y siempre verificar con criterio humano.
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: ¿Qué es un MVP? -->
+        <section class="slide" id="slide-2" role="tabpanel" aria-labelledby="slide-2-title">
+            <div class="slide-content">
+                <h2 id="slide-2-title">¿Qué es un MVP?</h2>
+                <div class="time-indicator">⏱️ 5 minutos</div>
+                
+                <div class="mvp-definition">
+                    <h3>Producto Mínimo Viable</h3>
+                    <p>La versión más simple de tu producto que permite <strong>probar una idea</strong> y <strong>aprender rápido</strong> de los usuarios.</p>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎯</div>
+                        <h4>Reduce riesgo</h4>
+                        <p>Valida ideas antes de invertir mucho tiempo</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⚡</div>
+                        <h4>Acelera decisiones</h4>
+                        <p>Feedback temprano para mejorar rápido</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔄</div>
+                        <h4>Permite iteraciones</h4>
+                        <p>Mejora continua basada en datos reales</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>📱 Mini ejemplo para nuestro taller:</h4>
+                    <p>3-4 pantallas que demuestren el valor de tu app sin necesidad de backend complejo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: El Desafío -->
+        <section class="slide" id="slide-3" role="tabpanel" aria-labelledby="slide-3-title">
+            <div class="slide-content">
+                <h2 id="slide-3-title">Desafío Mascota CC Chillán</h2>
+                <div class="time-indicator">⏱️ 2-3 minutos</div>
+                
+                <div class="challenge-objective">
+                    <h3>🎯 Objetivo común</h3>
+                    <p>Inspirar <strong>hábitos positivos</strong> en la comunidad estudiantil:</p>
+                    <div class="habits-tags">
+                        <span class="habit-tag">♻️ Reciclaje</span>
+                        <span class="habit-tag">🤝 Convivencia</span>
+                        <span class="habit-tag">📚 Estudio</span>
+                        <span class="habit-tag">⏰ Puntualidad</span>
+                        <span class="habit-tag">💚 Bienestar</span>
+                    </div>
+                </div>
+
+                <div class="requirements-box">
+                    <h3>📋 Requisitos mínimos</h3>
+                    <div class="requirements-list">
+                        <div class="requirement">
+                            <span class="req-number">1</span>
+                            <span>3-5 pantallas funcionales</span>
+                        </div>
+                        <div class="requirement">
+                            <span class="req-number">2</span>
+                            <span>Puntaje y tiempo (o barra de progreso) visibles</span>
+                        </div>
+                        <div class="requirement">
+                            <span class="req-number">3</span>
+                            <span>Usar paleta institucional</span>
+                        </div>
+                        <div class="requirement">
+                            <span class="req-number">4</span>
+                            <span>Incluir LOGO y MASCOTA (PNG sin fondo)</span>
+                        </div>
+                        <div class="requirement">
+                            <span class="req-number">5</span>
+                            <span>Publicar y compartir URL de Bolt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="color-palette">
+                    <h4>🎨 Paleta institucional</h4>
+                    <div class="color-swatches">
+                        <div class="color-swatch primary">
+                            <div class="color-circle"></div>
+                            <span>#082563</span>
+                        </div>
+                        <div class="color-swatch secondary">
+                            <div class="color-circle"></div>
+                            <span>#FFF11C</span>
+                        </div>
+                        <div class="color-swatch accent">
+                            <div class="color-circle"></div>
+                            <span>#0D368E</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Arranque en Bolt -->
+        <section class="slide" id="slide-4" role="tabpanel" aria-labelledby="slide-4-title">
+            <div class="slide-content">
+                <h2 id="slide-4-title">Arranque en Bolt (demo)</h2>
+                <div class="time-indicator">⏱️ Demo práctica</div>
+                
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Crear proyecto nuevo</h4>
+                            <p>Ir a <strong>bolt.new</strong> y crear un nuevo proyecto</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Subir assets</h4>
+                            <p>Subir <strong>LOGO</strong> y <strong>MASCOTA</strong> (PNG sin fondo)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Crear pantallas</h4>
+                            <p>3-5 pantallas: <em>Portada, Juego/App, Resultado, Créditos</em></p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Definir estilos CSS</h4>
+                            <div class="code-block">
+                                <code>:root {
+  --primary: #082563;
+  --secondary: #FFF11C;
+  --accent: #0D368E;
+  --white: #FFFFFF;
+  --black: #000000;
+}</code>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Crear variables JS</h4>
+                            <p><code>score</code>, <code>tiempo</code>, <code>estadoJuego</code></p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h4>Agregar interactividad</h4>
+                            <p>Botones de interacción y eventos del juego</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Prompt base -->
+        <section class="slide" id="slide-5" role="tabpanel" aria-labelledby="slide-5-title">
+            <div class="slide-content">
+                <h2 id="slide-5-title">Prompt base (copiable)</h2>
+                <div class="time-indicator">📋 Para usar en Bolt</div>
+                
+                <div class="prompt-container">
+                    <div class="prompt-box">
+                        <textarea id="promptText" readonly>Construye un MVP 'Desafío Mascota CC Chillán' con 3-5 pantallas:
+1) Portada: logo (arriba-derecha), mascota PNG, botón [Comenzar].
+2) Juego/App: mostrar score=0 y timer=45s (o barra de progreso).
+   Cada 1-3 s ocurre un evento aleatorio (p.ej., 'laurel' suma, 'obstáculo' resta).
+   Botones accesibles (teclado) para tomar decisiones.
+3) Resultado: mensaje dinámico según puntaje (novato / avanzado / leyenda).
+4) (Opcional) Créditos/Consejos de hábito positivo.
+Variables: score, tiempo, estadoJuego. Funciones: iniciarJuego(), tick(), eventoAleatorio(), finDeJuego().
+Estilos con :root { --primary:#082563; --secondary:#FFF11C; --accent:#0D368E; --white:#FFFFFF; --black:#000000 }.
+Usa LOGO y MASCOTA del colegio.</textarea>
+                        <button class="copy-btn" onclick="copyPrompt()" aria-label="Copiar prompt">
+                            📋 Copiar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tips-section">
+                    <h3>💡 Tips para un buen prompt</h3>
+                    <div class="tips-grid">
+                        <div class="tip">
+                            <strong>Sé claro:</strong> Especifica exactamente qué quieres
+                        </div>
+                        <div class="tip">
+                            <strong>Define audiencia:</strong> Estudiantes de enseñanza media
+                        </div>
+                        <div class="tip">
+                            <strong>Describe pantallas:</strong> Qué debe tener cada una
+                        </div>
+                        <div class="tip">
+                            <strong>Establece tono:</strong> Juvenil, motivador, educativo
+                        </div>
+                        <div class="tip">
+                            <strong>Pon restricciones:</strong> Colores, elementos obligatorios
+                        </div>
+                        <div class="tip">
+                            <strong>Pide funcionalidad:</strong> Variables, funciones específicas
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Checklist de equipo -->
+        <section class="slide" id="slide-6" role="tabpanel" aria-labelledby="slide-6-title">
+            <div class="slide-content">
+                <h2 id="slide-6-title">Checklist de equipo</h2>
+                <div class="time-indicator">⏱️ 30 minutos de trabajo</div>
+                
+                <div class="checklist-container">
+                    <h3>✅ Lista de verificación</h3>
+                    <div class="checklist">
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check1">
+                            <span class="checkmark"></span>
+                            <span class="check-text">3-5 pantallas funcionales</span>
+                        </label>
+                        
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check2">
+                            <span class="checkmark"></span>
+                            <span class="check-text">Score visible en pantalla</span>
+                        </label>
+                        
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check3">
+                            <span class="checkmark"></span>
+                            <span class="check-text">Tiempo o barra de progreso</span>
+                        </label>
+                        
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check4">
+                            <span class="checkmark"></span>
+                            <span class="check-text">Paleta institucional aplicada</span>
+                        </label>
+                        
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check5">
+                            <span class="checkmark"></span>
+                            <span class="check-text">Logo + Mascota en uso</span>
+                        </label>
+                        
+                        <label class="checklist-item">
+                            <input type="checkbox" id="check6">
+                            <span class="checkmark"></span>
+                            <span class="check-text">Proyecto publicado con URL</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="progress-indicator">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="progressText">0% completado</p>
+                </div>
+
+                <div class="motivation-box">
+                    <h4>🚀 ¡Vamos equipo!</h4>
+                    <p>Recuerden: el objetivo es <strong>aprender y experimentar</strong>. No busquen la perfección, busquen la funcionalidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Publicación y prueba -->
+        <section class="slide" id="slide-7" role="tabpanel" aria-labelledby="slide-7-title">
+            <div class="slide-content">
+                <h2 id="slide-7-title">Publicación y prueba</h2>
+                <div class="time-indicator">⏱️ Compartir y testear</div>
+                
+                <div class="publish-steps">
+                    <div class="publish-step">
+                        <div class="step-icon">🚀</div>
+                        <div class="step-info">
+                            <h4>1. Publicar en Bolt</h4>
+                            <p>Hacer clic en <strong>"Publish/Share"</strong> en Bolt</p>
+                        </div>
+                    </div>
+                    
+                    <div class="publish-step">
+                        <div class="step-icon">📋</div>
+                        <div class="step-info">
+                            <h4>2. Copiar URL</h4>
+                            <p>Guardar el enlace de tu proyecto publicado</p>
+                        </div>
+                    </div>
+                    
+                    <div class="publish-step">
+                        <div class="step-icon">🔄</div>
+                        <div class="step-info">
+                            <h4>3. Test cruzado 2×1</h4>
+                            <p>Cada equipo prueba otro proyecto y da feedback</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="url-sharing">
+                    <h3>📤 Compartir tu URL</h3>
+                    <div class="url-input-container">
+                        <input type="text" id="projectUrl" placeholder="Pega aquí la URL de tu proyecto..." aria-label="URL del proyecto">
+                        <button class="copy-url-btn" onclick="copyUrl()" aria-label="Copiar URL">
+                            📋 Copiar URL
+                        </button>
+                    </div>
+                </div>
+
+                <div class="feedback-section">
+                    <h3>💬 Feedback 2×1</h3>
+                    <div class="feedback-format">
+                        <div class="feedback-item positive">
+                            <strong>👍 2 Fortalezas:</strong>
+                            <p>¿Qué funciona bien? ¿Qué te gustó?</p>
+                        </div>
+                        <div class="feedback-item improvement">
+                            <strong>🔧 1 Mejora:</strong>
+                            <p>¿Qué se podría mejorar o agregar?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Entrega y cierre -->
+        <section class="slide" id="slide-8" role="tabpanel" aria-labelledby="slide-8-title">
+            <div class="slide-content">
+                <h2 id="slide-8-title">Entrega de links + Cierre</h2>
+                <div class="time-indicator">📝 Formulario final</div>
+                
+                <div class="forms-container">
+                    <h3>📋 Entrega tu proyecto</h3>
+                    <p>Completa este formulario con los datos de tu equipo:</p>
+                    
+                    <!-- Microsoft Forms -->
+                    <div class="forms-embed">
+                        <iframe width="640px" height="480px" src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=k9O-jzvQ-Em-ec1eH1kPslfjqO93QOFJipW9rMDuJdZUNVJWWkY4QTZVSDZLOEdYOVpQQkJNNDRWOC4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="closing-section">
+                    <div class="thank-you">
+                        <h3>🎉 ¡Gracias por participar!</h3>
+                        <p>Han creado sus primeros MVPs usando IA generativa.</p>
+                        <p><strong>Mostraremos los proyectos en el Stand de la Carrera.</strong></p>
+                    </div>
+
+                    <div class="next-steps">
+                        <h4>🚀 Próximos pasos</h4>
+                        <ul>
+                            <li>Sigan experimentando con Bolt en casa</li>
+                            <li>Compartan sus proyectos con familia y amigos</li>
+                            <li>Piensen en nuevas ideas para desarrollar</li>
+                            <li>¡La IA es una herramienta, la creatividad es suya!</li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-info">
+                        <h4>📧 Contacto</h4>
+                        <p>¿Preguntas? ¿Ideas? ¡Escríbenos!</p>
+                        <p><strong>Equipo Taller CreaTuApp CC Chillán</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
