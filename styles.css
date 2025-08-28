@@ -40,7 +40,7 @@ body {
 .logo-container {
     width: 120px;
     height: 80px;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--primary);
     border: 2px solid var(--primary);
     border-radius: var(--border-radius);
     display: flex;
@@ -55,6 +55,7 @@ body {
 .logo-container:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-hover);
+    background: var(--accent);
 }
 
 .college-logo {
