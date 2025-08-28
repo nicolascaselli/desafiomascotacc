@@ -314,12 +314,34 @@ function copyUrl() {
     }
 }
 
+// Copiar URL de la mascota (Slide 1)
+function copyMascotUrl() {
+    const urlInput = document.getElementById('mascotaUrl');
+    if (urlInput) {
+        urlInput.select();
+        document.execCommand('copy');
+        showNotification('URL de la mascota copiada 🎭');
+        
+        // Efecto visual en el botón
+        const copyBtn = document.querySelector('.copy-mascot-btn');
+        const originalText = copyBtn.textContent;
+        copyBtn.textContent = '✅ Copiado';
+        copyBtn.style.background = '#28a745';
+        
+        setTimeout(() => {
+            copyBtn.textContent = originalText;
+            copyBtn.style.background = 'var(--primary)';
+        }, 2000);
+    }
+}
+
 // Funciones globales para uso en HTML
 window.nextSlide = nextSlide;
 window.prevSlide = prevSlide;
 window.goToSlide = goToSlide;
 window.copyPrompt = copyPrompt;
 window.copyUrl = copyUrl;
+window.copyMascotUrl = copyMascotUrl;
 
 // Agregar estilos para animaciones
 const style = document.createElement('style');
