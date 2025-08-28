@@ -391,6 +391,8 @@ document.addEventListener('wheel', function(e) {
     if (e.ctrlKey || e.metaKey) {
         e.preventDefault();
     }
+}
+)
 
 // Prevenir zoom con gestos táctiles
 document.addEventListener('touchstart', function(e) {
